@@ -57,13 +57,12 @@ This app allows you to predict the bioactivity towards inhibting the `Acetylchol
 # Sidebar
 with st.sidebar.header('Upload your CSV data'):
     uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['txt'])
-    with open("example_input.txt", "rb") as file:
-        st.sidebar.download_button(
-            label="Download Example Input File",
-            data=file,
-            file_name="example_input.txt",
-            mime="text/plain"
-        )
+    st.sidebar.download_button(
+        label="Download Example Input File",
+        data="example_input.txt",
+        file_name="example_input.txt",
+        mime="text/plain"
+    )
 
 if st.sidebar.button('Predict'):
     if uploaded_file is None:
