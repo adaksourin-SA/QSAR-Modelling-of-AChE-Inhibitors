@@ -9,10 +9,15 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 
+PADEL_DIR = BASE_DIR / "PaDEL-Descriptor"
+
+jar_file = PADEL_DIR / "PaDEL-Descriptor.jar"
+xml_file = PADEL_DIR / "PubchemFingerprinter.xml"
+
 # Molecular descriptor calculator
 def desc_calc():
     # Performs the descriptor calculation
-    bashCommand = "java -Xms512m -Xmx1G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file user_descriptors_output.csv"
+    bashCommand = f"java -Xms512m -Xmx1G -Djava.awt.headless=true -jar \"{jar_file}\" -removesalt -standardizenitro -fingerprints -descriptortypes \"{xml_file}\" -dir ./ -file user_descriptors_output.csv"
     result = subprocess.run(
         bashCommand.split(),
         capture_output=True,
