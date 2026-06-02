@@ -5,6 +5,9 @@ import subprocess
 import os
 import base64
 import joblib
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # Molecular descriptor calculator
 def desc_calc():
@@ -35,7 +38,7 @@ def build_model(input_data):
     st.markdown(filedownload(df), unsafe_allow_html=True)
 
 # Logo image
-image = Image.open('logo.png')
+image = Image.open(BASE_DIR/'logo.png')
 
 st.image(image, use_container_width= True)
 
