@@ -14,7 +14,7 @@ This project covers the entire drug-discovery data science pipeline:
 - Streamlit web application deployment
 
 ## Live Demo
-🚀 **Web App:** 
+🚀 **Web App:** https://qsar-modelling-of-acetylcholinesterase-inhibitors.streamlit.app/
 
 
 ---
@@ -312,6 +312,8 @@ The application will:
 - Display downloadable results
 
 ![6](Screenshots/6.jpg)
+![6](Screenshots/7.jpg)
+![6](Screenshots/8.jpg)
 
 ---
 
