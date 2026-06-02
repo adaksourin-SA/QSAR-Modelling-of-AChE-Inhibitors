@@ -17,7 +17,17 @@ xml_file = PADEL_DIR / "PubchemFingerprinter.xml"
 # Molecular descriptor calculator
 def desc_calc():
     # Performs the descriptor calculation
-    bashCommand = f"java -Xms512m -Xmx1G -Djava.awt.headless=true -jar \"{jar_file}\" -removesalt -standardizenitro -fingerprints -descriptortypes \"{xml_file}\" -dir ./ -file user_descriptors_output.csv"
+    bashCommand = (
+    f"java -Xms512m -Xmx1G "
+    f"-Djava.awt.headless=true "
+    f"-jar {jar_file} "
+    f"-removesalt "
+    f"-standardizenitro "
+    f"-fingerprints "
+    f"-descriptortypes {xml_file} "
+    f"-dir . "
+    f"-file user_descriptors_output.csv"
+    )
     result = subprocess.run(
         bashCommand.split(),
         capture_output=True,
