@@ -15,7 +15,7 @@ def desc_calc():
     bashCommand = "java -Xms512m -Xmx1G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file user_descriptors_output.csv"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
-    os.remove('molecule.smi')
+    os.remove(BASE_DIR/'molecule.smi')
 
 # File download
 def filedownload(df):
@@ -27,7 +27,7 @@ def filedownload(df):
 # Model building
 def build_model(input_data):
     # Reads in saved regression model
-    model = joblib.load('QSAR_regression.pkl')
+    model = joblib.load(BASE_DIR/'QSAR_regression.pkl')
     # Apply model to make predictions
     prediction = model.predict(input_data)
     st.header('**Prediction output**')
@@ -70,7 +70,7 @@ if st.sidebar.button('Predict'):
         st.stop()
 
     load_data = pd.read_table(uploaded_file, sep=' ', header=None)
-    load_data.to_csv('molecule.smi', sep = '\t', header = False, index = False)
+    load_data.to_csv(BASE_DIR/'molecule.smi', sep = '\t', header = False, index = False)
 
     st.header('**Original input data**')
     st.write(load_data)
@@ -80,14 +80,14 @@ if st.sidebar.button('Predict'):
 
     # Read in calculated descriptors and display the dataframe
     st.header('**Calculated molecular descriptors**')
-    desc = pd.read_csv('user_descriptors_output.csv')
+    desc = pd.read_csv(BASE_DIR/'user_descriptors_output.csv')
     st.write(desc)
     st.write(desc.shape)
-    os.remove('user_descriptors_output.csv')
+    os.remove(BASE_DIR/'user_descriptors_output.csv')
 
     # Read descriptor list used in previously built model
     st.header('**Subset of descriptors from model used**')
-    Xlist = list(pd.read_csv('descriptor_list.csv').columns)
+    Xlist = list(pd.read_csv(BASE_DIR/'descriptor_list.csv').columns)
     desc_subset = desc[Xlist]
     st.write(desc_subset)
     st.write(desc_subset.shape)
