@@ -28,11 +28,7 @@ def desc_calc():
     f"-dir . "
     f"-file user_descriptors_output.csv"
     )
-    result = subprocess.run(
-        bashCommand.split(),
-        capture_output=True,
-        text=True
-    )
+    result = subprocess.run(bashCommand.split(), text=True)
 
     if os.path.exists('molecule.smi'):
         os.remove('molecule.smi')

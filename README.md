@@ -49,7 +49,11 @@ MAIN/
 ├── QSAR_Part_4.ipynb
 ├── QSAR_Part_5.ipynb
 │
-└── Screenshots
+├── Screenshots
+│
+├── requirements.txt
+│
+└── packages.txt
 ```
 
 ---
