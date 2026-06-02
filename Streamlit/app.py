@@ -32,6 +32,9 @@ def desc_calc():
 
     st.text(f"Return code: {result.returncode}")
 
+    st.write("Jar path:", jar_file)
+    st.write("Jar exists:", jar_file.exists())
+
     if os.path.exists('molecule.smi'):
         st.text("Molecule file created")
         os.remove('molecule.smi')
