@@ -13,9 +13,23 @@ BASE_DIR = Path(__file__).resolve().parent
 def desc_calc():
     # Performs the descriptor calculation
     bashCommand = "java -Xms512m -Xmx1G -Djava.awt.headless=true -jar ./PaDEL-Descriptor/PaDEL-Descriptor.jar -removesalt -standardizenitro -fingerprints -descriptortypes ./PaDEL-Descriptor/PubchemFingerprinter.xml -dir ./ -file user_descriptors_output.csv"
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    output, error = process.communicate()
-    os.remove('molecule.smi')
+    result = subprocess.run(
+        bashCommand.split(),
+        capture_output=True,
+        text=True
+    )
+
+    st.text("STDOUT:")
+    st.text(result.stdout)
+
+    st.text("STDERR:")
+    st.text(result.stderr)
+
+    st.text(f"Return code: {result.returncode}")
+
+    if os.path.exists('molecule.smi'):
+        st.text("Molecule file created")
+        os.remove('molecule.smi')
 
 # File download
 def filedownload(df):
