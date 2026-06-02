@@ -16,7 +16,7 @@ xml_file = PADEL_DIR / "PubchemFingerprinter.xml"
 
 # Molecular descriptor calculator
 def desc_calc():
-    # Performs the descriptor calculation
+    
     bashCommand = (
     f"java -Xms512m -Xmx1G "
     f"-Djava.awt.headless=true "
@@ -34,19 +34,7 @@ def desc_calc():
         text=True
     )
 
-    st.text("STDOUT:")
-    st.text(result.stdout)
-
-    st.text("STDERR:")
-    st.text(result.stderr)
-
-    st.text(f"Return code: {result.returncode}")
-
-    st.write("Jar path:", jar_file)
-    st.write("Jar exists:", jar_file.exists())
-
     if os.path.exists('molecule.smi'):
-        st.text("Molecule file created")
         os.remove('molecule.smi')
 
 # File download
