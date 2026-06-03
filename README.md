@@ -13,9 +13,26 @@ This project covers the entire drug-discovery data science pipeline:
 - Model evaluation
 - Streamlit web application deployment
 
+---
+
 ## Live Demo
 🚀 **Web App:** https://qsar-modelling-of-acetylcholinesterase-inhibitors.streamlit.app/
 
+
+---
+
+# 🎯 Objective
+
+The goal of this project is to develop a machine learning model capable of predicting the inhibitory activity of compounds against **Acetylcholinesterase (AChE)**.
+
+Acetylcholinesterase is a crucial enzyme responsible for breaking down the neurotransmitter acetylcholine. Inhibiting this enzyme is an important therapeutic strategy in diseases such as:
+
+- Alzheimer's Disease
+- Dementia
+- Myasthenia Gravis
+- Glaucoma
+
+Using molecular descriptors derived from chemical structures, the QSAR model estimates biological activity without requiring laboratory experiments.
 
 ---
 
@@ -55,21 +72,6 @@ MAIN/
 │
 └── packages.txt
 ```
-
----
-
-# 🎯 Objective
-
-The goal of this project is to develop a machine learning model capable of predicting the inhibitory activity of compounds against **Acetylcholinesterase (AChE)**.
-
-Acetylcholinesterase is a crucial enzyme responsible for breaking down the neurotransmitter acetylcholine. Inhibiting this enzyme is an important therapeutic strategy in diseases such as:
-
-- Alzheimer's Disease
-- Dementia
-- Myasthenia Gravis
-- Glaucoma
-
-Using molecular descriptors derived from chemical structures, the QSAR model estimates biological activity without requiring laboratory experiments.
 
 ---
 
